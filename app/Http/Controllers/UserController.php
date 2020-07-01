@@ -72,7 +72,7 @@ class UserController extends Controller
     {
         $request->user()->token()->revoke();
         return response()->json([
-            'status' => 'fail',
+            'status' => 'success',
             'message' => 'Successfully logged out!!'
         ]);
     }
