@@ -19,6 +19,15 @@ Route::group(['prefix' => 'auth'], function () {
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('logout', 'UserController@logout');
     });
+    Route::group([
+        'namespace' => 'auth',
+        'prefix' => 'password',
+        'middleware' => ['auth:api']
+    ], function () {
+        Route::post('create', 'PasswordResetController@create');
+        Route::get('find/{token}', 'PasswordResetController@find');
+        Route::post('reset', 'PasswordResetController@reset');
+    });
 });
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
