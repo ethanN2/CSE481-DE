@@ -43,6 +43,9 @@ class RegisterActivate extends Notification
         $url = url('/api/auth/register/activate/' . $notifiable->activation_token);
 
         return (new MailMessage)
+            ->from('datngodoan123@gmail.com', 'Dat Ken')
+            // ->cc($notifiable->email, $notifiable->name)
+            ->replyTo($notifiable->email)
             ->subject('Confirm your account')
             ->line('Thanks for signup! Please before you begin, you must confirm your account.')
             ->action('Confirm Account', url($url))
