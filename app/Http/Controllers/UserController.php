@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Notifications\RegisterActivate;
+// use App\Notifications\RegisterActivate;
+use App\Mail\mailForm;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Mail;
 
 class UserController extends Controller
 {
@@ -58,9 +60,9 @@ class UserController extends Controller
             'activation_token' => Str::random(60)
         ]);
 
+        // $user->notify(new registerActivate($user));
+        Mail::send(new mailForm($user));
         $user->save();
-
-        $user->notify(new registerActivate($user));
 
         return response()->json(array([
             'status' => 'success',
