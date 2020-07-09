@@ -60,8 +60,8 @@ class UserController extends Controller
             'activation_token' => Str::random(60)
         ]);
 
-        // $user->notify(new registerActivate($user));
-        Mail::send(new mailForm($user));
+        $user->notify(new registerActivate($user));
+        // Mail::send(new mailForm($user));
         $user->save();
 
         return response()->json(array([
