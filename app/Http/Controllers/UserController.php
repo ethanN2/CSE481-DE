@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-// use App\Notifications\RegisterActivate;
+use App\Notifications\RegisterActivate;
 use App\Mail\mailForm;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
