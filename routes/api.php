@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+// use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +19,35 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'UserController@login');
     Route::post('register', 'UserController@register');
     Route::get('register/activate/{token}', 'UserController@registerActivate');
-    Route::group(['middleware' => 'auth:api'], function () {
+    Route::group([
+        'middleware' => 'auth:api',
+        'prefix' => 'users'
+    ], function () {
         Route::get('logout', 'UserController@logout');
+    });
+});
+
+// publisher api
+
+// question managment
+Route::group([
+    'prefix' => 'question'
+], function () {
+    Route::get('', 'QuestionController@index');
+    Route::post('create', 'QuestionController@store');
+    Route::get('{quesiton_id}', 'QuestionController@show');
+    Route::put('{question_id}/edit', 'QuestionController@update');
+    Route::delete('{question_id}', 'QuestionController@destroy');
+
+    // get answer
+    Route::get('{question_id}/answer', 'AnswerController@index');
+    Route::post('{question_id}/answer', 'AnswerController@store');
+    Route::group([
+        'prefix' => 'answer'
+    ], function () {
+        Route::get('{id}', 'AnswerController@show');
+        Route::put('{id}', 'AnswerController@update');
+        Route::delete('{id}', 'AnswerController@destroy');
     });
 });
 
