@@ -17,9 +17,11 @@ class CreateAnswersTable extends Migration
             $table->bigIncrements('id');
             $table->string('answer');
             $table->boolean('flag');
+            $table->timestamps();
+        });
+        Schema::table('answers', function (Blueprint $table) {
             $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')->references('id')->on('questions');
-            $table->timestamps();
         });
     }
 
