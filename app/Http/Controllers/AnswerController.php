@@ -16,7 +16,7 @@ class AnswerController extends Controller
     public function store(Request $request, $question_id)
     {
         // check answer maximum
-        if ($this->checkAnswers($question_id)) {
+        if (!$this->checkAnswers($question_id)) {
             return response()->json([
                 'message' => 'max answers !! You can`t create more answer'
             ], 403);
