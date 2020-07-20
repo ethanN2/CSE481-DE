@@ -8,20 +8,6 @@ use Illuminate\Http\Request;
 class AnswerController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index($question_id)
-    {
-        $answers = Answer::all()->where('question_id', 'like', $question_id);
-        return response()->json([
-            'data' => $answers,
-            'message' => 'get answer successfully!'
-        ]);
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
