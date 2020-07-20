@@ -33,14 +33,13 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group([
     'prefix' => 'question'
 ], function () {
-    Route::get('', 'QuestionController@index');
+    Route::post('', 'QuestionController@index');
     Route::post('create', 'QuestionController@store');
     Route::get('{quesiton_id}', 'QuestionController@show');
     Route::put('{question_id}/edit', 'QuestionController@update');
     Route::delete('{question_id}', 'QuestionController@destroy');
 
     // get answer
-    Route::get('{question_id}/answer', 'AnswerController@index');
     Route::post('{question_id}/answer', 'AnswerController@store');
     Route::group([
         'prefix' => 'answer'
