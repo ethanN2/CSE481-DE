@@ -13,9 +13,31 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $questions = Question::all();
+        if (!$request->get('per_page')) {
+            return response()->json([
+                'message' => 'need per_page to fetch!!',
+                'hint' => 'set per_page = 10 || 15 || 20 ||25'
+            ]);
+        }
+        switch ($request->get('per_page')) {
+            case 10:
+                $questions = Question::paginate(10);
+                break;
+            case 15:
+                $questions = Question::paginate(15);
+                break;
+            case 20:
+                $questions = Question::paginate(20);
+                break;
+            case 25:
+                $questions = Question::paginate(25);
+                break;
+            default:
+                $questions = Question::paginate(10);
+            break;
+        }
         return response()->json([
             'data' => $questions,
             'message' => 'get data successfully!'
@@ -30,8 +52,17 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
+        if (!$request->get('question'))
+            return response()->json([
+                'message' => 'need require quesition'
+            ], 404);
+        if (!$request->get('level'))
+            return response()->json([
+                'message' => 'need require level'
+            ], 404);
         $question = new Question([
-            'question' => $request->get('question')
+            'question' => $request->get('question'),
+            'level' => $request->get('level')
         ]);
         $question->save();
         return response()->json([
