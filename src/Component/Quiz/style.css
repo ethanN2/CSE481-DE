@@ -1,0 +1,35 @@
+.Freetest {
+  margin-left: 40%;
+  height: 500px;
+}
+
+.result {
+  margin-top: 20px;
+  margin-left: 40%;
+  height: 500px;
+}
+  
+.options {
+  width: 30%;
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+  
+.selected {
+  background: linear-gradient(to right, #74ebd5, #acb6e5) !important;
+}
+
+.freetestul {
+  list-style-type: none;
+  margin-top: 20px;
+}
+.freetestbutton {
+  border: none;
+  background: linear-gradient(to right, #74ebd5, #acb6e5) ;
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+}

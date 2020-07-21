@@ -1,0 +1,118 @@
+.container {
+    width: 100%;
+    margin: 0 auto
+}
+.header {
+    width: 100%;
+    height: 500px;
+}
+.nav-bar{
+    height: 130px;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: black;
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left:40px;
+}
+.nav-link a{
+    color: black;
+    font-family: Quicksand;
+    line-height: 37px;
+}
+.nav-link a:hover{
+    text-decoration: none;
+    background-color: #FA811B;
+    border-radius: 30px;
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+.slide {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.intro {
+    font-family: Quicksand;
+}
+.intro-header {
+    width: 580px;
+}
+.intro-text p{
+    margin-left: 20px;
+    font-size: 22px;
+    line-height: 27px;
+    margin-top: 30px;
+}
+.home-check-button {
+    margin-top: 30px;
+    width: 180px;
+    height: 60px;
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 25px;
+    background: #FA811B;
+    border-style: none;
+    border-radius: 10px;
+    padding: 0px;
+    justify-content: center
+}
+hr {
+    border-top: 2px solid; 
+     color: rgb(204, 204, 204);
+     width: 80%;
+     margin-top: 50px;
+}
+.body-header h1{
+    font-weight: bold;
+    text-align: center;
+}
+.body-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.card-content {
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px; 
+}
+.card-content h4 {
+    margin-top: 30px;
+    text-align: center;
+}
+.card-content p {
+    margin-top: 30px;
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+.card-icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+.body-button .home-check-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

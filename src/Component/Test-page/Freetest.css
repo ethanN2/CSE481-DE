@@ -1,0 +1,73 @@
+.body-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner-img {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+.sub-menu {
+    margin-top: 50px;
+    margin-left: 2.5%;
+}
+.freetest-container {
+    background-color: rgba(149, 181, 235, 0.12);
+    margin-bottom: 50px;
+}
+.freetest-body-header {
+    margin-top: 50px;
+    padding-top: 20px;
+    text-align: center;
+}
+.freetest-body-header h1 {
+    font-family: Quicksand;
+    color: #FA811B;
+    font-weight: bold;
+    margin-top: 50px;    
+}
+.freetest-body-header p {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: bold;
+}
+.freetest-body {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    background-color: #fff;
+}
+.freetest-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+.freetest-card-section {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.freetest-card-content {
+    width: 50%;
+}
+.freetest-card-content h5 {
+    font-family: Quicksand;
+    color: #FA811B;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 37px;
+}
+.test-check-button {
+    border-radius: 50px;
+    background-color: #FA811B;
+    border-style: none;
+}

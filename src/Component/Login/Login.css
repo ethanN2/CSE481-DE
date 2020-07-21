@@ -1,0 +1,84 @@
+.login-container {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 70%;
+    height: 70%;
+    top:0;bottom:0;right:0;left:0;
+    border-radius: 10px;
+    background-color: #ffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.logo Image {
+    width: 100%;
+}
+
+.form-img {
+    border-radius: 5%;
+}
+.login-field{
+    width: 25%;
+}
+.form-label {
+    display: flex;
+    font-family: Quando;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.input-field {
+    width: 100%;
+    height: 47px;
+    border-radius:50px;
+    margin-bottom: 33px;
+    border-style: none;
+    background: #E5E5E5;
+    justify-content: center;
+}
+.check-button {
+    margin: auto;
+    width: 50%;
+    height: 35px;
+    font-family: Quando;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    background: #2CDB52;
+    border-style: none;
+    border-radius: 50px;
+    padding: 0px;
+    justify-content: center
+}
+.check-button:hover {
+    background: #0ea52f;
+}
+.external-link{
+    font-family: Quando;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #9B9B9B;
+    margin-top:5px
+}
+.ext-link-content1, .ext-link-content2 {
+    color: #9B9B9B;
+    text-decoration: none;
+}
+.ext-link-content1:hover , .ext-link-content2:hover {
+    text-decoration: underline;
+    color: #7c7878;
+}
