@@ -11,6 +11,7 @@ import Exams from '../Exams/Exams';
 import Freequizpage from '../Quiz/Freequizpage';
 import Admin from '../Admin/Admin';
 import Createquest from '../Admin/Createquest'
+import Allquestion from '../Admin/Allquestion'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function Routes() {
@@ -28,6 +29,7 @@ function Routes() {
           <Route path="/Freequiz" component={Freequizpage}/>
           <Route path="/Admin" component={Admin}/>
           <Route path='/Create-question' component={Createquest} />
+          <Route path='/Allquestion' component={Allquestion} />
           <Route component={Error} />
         </Switch>
        {/* <Footer /> */}
