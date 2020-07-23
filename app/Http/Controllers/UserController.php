@@ -20,11 +20,11 @@ class UserController extends Controller
             'password' => 'required|string|max:200',
             'remember_me' => 'boolean'
         ]);
-        
+
         $credentials = request(['email', 'password']);
         $credentials['active'] = 1;
         $credentials['deleted_at'] = null;
-        
+
         if (!Auth::attempt($credentials))
             return response()->json([
                 'status' => 'fail',
@@ -48,23 +48,29 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:100',
+            'first_name' => 'required|string|max:50',
+            'last_name' => 'required|string|max:50',
+            'role' => 'required|string|max:16',
             'email' => 'required|string|email|unique:users|max:150',
             'password' => 'required|string|confirmed'
         ]);
 
         $user = new User([
-            'name' => $request->name,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'role' => $request->role,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'activation_token' => Str::random(60)
         ]);
 
-        $user->notify(new registerActivate($user));
+        $url = url('/api/auth/register/activate/' . $user->activation_token);
+        // $user->notify(new RegisterActivate($user));
         // Mail::send(new mailForm($user));
         $user->save();
 
         return response()->json(array([
+            'url_activate' => $url,
             'status' => 'success',
             'message' => 'created user successfully <3'
         ]));
@@ -91,9 +97,63 @@ class UserController extends Controller
         $user->activation_token = '';
         $user->save();
         return $user;
-    } 
-    public function user(Request $request)
+    }
+    public function getUsers(Request $request)
     {
-        return response()->json($request->user());
+        $request->validate([
+            'per_page' => 'required|number|max:25',
+        ]);
+
+        switch ($request->get('per_page')) {
+            case 10:
+                $users = User::paginate(10);
+                break;
+            case 15:
+                $users = User::paginate(15);
+                break;
+            case 20:
+                $users = User::paginate(20);
+                break;
+            case 25:
+                $users = User::paginate(25);
+                break;
+            default:
+                return response()->json([
+                    'message' => 'per_page values (10,15,20,25)'
+                ], 400);
+                break;
+        }
+
+        return response()->json([
+            'data' => $users,
+            'message' => 'get users successfully!!'
+        ],200);
+    }
+    public function update(Request $request, $user_id)
+    {
+        $request->validate([
+            'first_name' => 'string|max:50',
+            'last_name' => 'string|max:50',
+            'role' => 'string|max:16'
+        ]);
+        
+        $user = user::findorfail($user_id);
+        $user->first_name = $request->get('fisrt_name');
+        $user->last_name = $request->get('last_name');
+        $user->role = $request->get('role');
+
+        $user->save();
+
+        return response()->json([
+            'message' => 'updated successfully!!'
+        ]);
+    }
+    public function destroy($user_id)
+    {
+        $user = User::findorfail($user_id);
+        $user->delete();
+        return response()->json([
+            'message' => 'deleted user successfully!!'
+        ]);
     }
 }

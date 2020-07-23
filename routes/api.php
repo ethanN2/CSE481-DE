@@ -38,6 +38,7 @@ Route::group([
     Route::get('{quesiton_id}', 'QuestionController@show');
     Route::put('{question_id}/edit', 'QuestionController@update');
     Route::delete('{question_id}', 'QuestionController@destroy');
+    Route::post('search', 'QuestionController@search');
 
     // get answer
     Route::post('{question_id}/answer', 'AnswerController@store');
